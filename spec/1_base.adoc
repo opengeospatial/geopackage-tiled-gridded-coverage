@@ -3,12 +3,16 @@
 This extension extends the existing GeoPackage Encoding Standard<<1>> and leverages the existing structure for raster tiles. The existing tile set tables (http://www.geopackage.org/spec/#_tile_matrix_set[GPKG 2.2.6], http://www.geopackage.org/spec/#tile_matrix[GPKG 2.2.7], and http://www.geopackage.org/spec/#tiles_user_tables[GPKG 2.2.8]) are used as normal with the following changes:
 
 *	A new value of `2D-gridded-coverage` is allowed in the `data_type` column of the http://www.geopackage.org/spec/#_contents[`gpkg_contents`] table.
-* There is a new table called `gpkg_2D_gridded_coverage_ancillary` as described in <<gpkg_2D_gridded_coverage_ancillary_table>>.
-* There are new columns in the http://www.geopackage.org/spec/#tiles_user_tables[tile pyramid user data tables] as described in <<updated_tile_matrix_set_table>> (we foresee these columns being used in other extensions which also leverage the tiles approach). When used for elevation data the new columns have the following values:
+* There are new tables
+** `gpkg_2D_gridded_coverage_ancillary` as described in <<gpkg_2D_gridded_coverage_ancillary_table>>.
+** `gpkg_2D_gridded_tile_ancillary` as described in <<gpkg_2D_gridded_tile_ancillary_table>>.
+* There are new columns in the http://www.geopackage.org/spec/#_tile_matrix_set[tile matrix set] table as described in <<updated_tile_matrix_set_table>> (we foresee these columns being used in other extensions which also leverage the tiles approach). When used for elevation data the new columns have the following values:
 ** content: `tiled-elevation`
 ** ancillary_table: `gpkg_elevation_ancillary`
-** ancillary_key: (foreign key to row in `gpkg_elevation_ancillary`)
-* *TODO: Tile-level ancillary data too!*
+** ancillary_id: (foreign key to row in `gpkg_elevation_ancillary`)
+** tile_ancillary_table: `gpkg_elevation_tile_ancillary`
+* There is a new column in the http://www.geopackage.org/spec/#tiles_user_tables[tile pyramid user data tables] as described in <<updated_tile_pyramid_user_data_table>> (we foresee these columns being used in other extensions which also leverage the tiles approach). When used for elevation data the new columns have the following values:
+** ancillary_id: (foreign key to row in `gpkg_elevation_tile_ancillary`)
 * PNG files are used for 16-bit integer (signed or unsigned) data
 *	TIFF files are used for 32-bit floating point data. These files are constrained as follows:
 **	One sample per pixel
@@ -40,6 +44,21 @@ A GeoPackage that contains a tile pyramid user data table MAY store BLOBs in the
 |`data_missing`|REAL|The value that indicates data is missing|yes||
 |=======================================================================
 
+=== Tile Ancillary
+[requirement] A GeoPackage that contains tiled gridded elevation data SHALL contain a `gpkg_2D_gridded_tile_ancillary` table or view as per <<gpkg_2D_gridded_tile_ancillary_table>>.
+
+[[gpkg_2D_gridded_tile_ancillary_table]]
+.Tile Ancillary Table Definition
+[cols=",,,,,",options="header",]
+|=======================================================================
+|Column Name |Column Type |Column Description |Null |Key
+|`id`|INTEGER	|Autoincrement primary key|no|PK
+|`min`|REAL|Minimum value of this tile|yes|
+|`max`|REAL|Maximum value of this tile|yes|
+|`mean`|REAL|The arithmetic mean of values in this tile|yes|
+|`std_dev`|REAL|The standard deviation of values in this tile|yes|
+|=======================================================================
+
 === Tile Matrix Set (Updated)
 [requirement] (extends http://www.geopackage.org/spec/#_requirement-37[GPKG-37]) A GeoPackage that contains tiled gridded elevation data SHALL contain a `gpkg_tile_matrix_set` table or view as per <<updated_tile_matrix_set_table>>.
 
@@ -55,8 +74,25 @@ A GeoPackage that contains a tile pyramid user data table MAY store BLOBs in the
 |`min_y`|DOUBLE|As Per http://www.geopackage.org/spec/#_tile_matrix_set[GPKG 2.2.6] |no||
 |`max_y`|DOUBLE|As Per http://www.geopackage.org/spec/#_tile_matrix_set[GPKG 2.2.6] |no||
 |`content`|TEXT|Type of tile content|yes|`tiles`|
-|`ancillary_table`|TEXT|Name of the table|yes||
+|`ancillary_table`|TEXT|Name of the pyramid ancillary table|yes||
 |`ancillary_id`|INTEGER|Foreign Key in the ancillary table|yes||
+|`tile_ancillary_table`|TEXT|Name of the tile ancillary table|yes||
+|=======================================================================
+
+=== Tile Pyramid User Data (Updated)
+[requirement] (extends http://www.geopackage.org/spec/#_requirement-53[GPKG-53]) A GeoPackage that contains tiled gridded elevation data SHALL contain a tile pyramid user data table or view as per <<updated_tile_pyramid_user_data_table>>.
+
+[[updated_tile_pyramid_user_data_table]]
+.Updated Tile Pyramid User Data Table Definition
+[cols=",,,,,",options="header",]
+|=======================================================================
+|Column Name |Column Type |Column Description |Null |Default |Key
+|`id` |INTEGER |Autoincrement primary key |no | |PK
+|`zoom_level` |INTEGER |min(zoom_level) <= `zoom_level` <= max(zoom_level) for `t_table_name` |no |0 |UK
+|`tile_column` |INTEGER |0 to `tile_matrix` `matrix_width` – 1 |no |0 |UK
+|`tile_row` |INTEGER |0 to `tile_matrix` `matrix_height` - 1 |no |0 |UK
+|`tile_data` |BLOB |Of an image MIME type specified in clauses <<tile_enc_png>>, <<tile_enc_jpeg>>, <<tile_enc_webp>> |no | |
+|`ancillary_id` |INTEGER |ID in the tile ancillary table|yes | |
 |=======================================================================
 
 
@@ -69,7 +105,7 @@ The following requirements refer to the `gpkg_tile_matrix_set` table as per <<up
 
 [requirement] (extends http://www.geopackage.org/spec/#_requirement-39[GPKG-39]) Values of the `gpkg_tile_matrix_set` `table_name` column SHALL reference values in the `gpkg_contents` `table_name` column for rows with a `data_type` of `2D-gridded-coverage`.
 
-[requirement] (extends http://www.geopackage.org/spec/#_requirement-40[GPKG-40]) Rows in the `gpkg_tile_matrix_set` table that have a `content` value of 'NULL' or `tiles` SHALL refer to raster tile matrix pyramids as per the core specification<<1>>. In this case values in the `ancillary_table` or `ancillary_id` columns SHALL NOT be used.
+[requirement] (extends http://www.geopackage.org/spec/#_requirement-40[GPKG-40]) Rows in the `gpkg_tile_matrix_set` table that have a `content` value of 'NULL' or `tiles` SHALL refer to raster tile matrix pyramids as per the http://www.geopackage.org/spec/#tiles[core specification]. In this case values in the `ancillary_table` or `ancillary_id` columns SHALL NOT be used.
 
 [requirement] (extends http://www.geopackage.org/spec/#_requirement-40[GPKG-40]) For each tile pyramid user data table containing tiled gridded elevation data, rows in the `gpkg_tile_matrix_set` table SHALL contain the values denoted in <<gpkg_tile_matrix_set_req_values>>.
 
@@ -80,16 +116,20 @@ The following requirements refer to the `gpkg_tile_matrix_set` table as per <<up
 |Column Name	|Value|
 |`content` |`tiled-elevation`|
 |`ancillary_table`	|`gpkg_2D_gridded_coverage_ancillary`|
+|`tile_ancillary_table`	|`gpkg_2D_gridded_tile_ancillary`|
 |=============================================
 
-[requirement] For each row in the `gpkg_tile_matrix_set` table that references tiled gridded elevation data, the value of the `ancillary_id` column SHALL reference a value in the `gpkg_2D_gridded_coverage_ancillary` id column.
+[requirement] (extends http://www.geopackage.org/spec/#_requirement-40[GPKG-40]) For each row in the `gpkg_tile_matrix_set` table that references tiled gridded elevation data, the value of the `ancillary_id` column SHALL reference a value in the `gpkg_2D_gridded_coverage_ancillary` `id` column.
 
 === Tile Pyramid User Data Tables
-[requirement] (extends http://www.geopackage.org/spec/#_requirement-36[GPKG-36], http://www.geopackage.org/spec/#_requirement-37[GPKG-37]) For tile pyramids with a `gpkg_2D_gridded_coverage_ancillary` `datatype` of 'integer', the `tile_data` BLOB in the tile pyramid user data table SHALL be of MIME type `image/png`.
+[requirement] (extends http://www.geopackage.org/spec/#_requirement-36[GPKG-36], http://www.geopackage.org/spec/#_requirement-37[GPKG-37]) For tile pyramids with a `gpkg_2D_gridded_coverage_ancillary` `datatype` of 'integer', the `tile_data` BLOB in the tile pyramid user data table SHALL be of MIME type `image/png` and the data SHALL be 16-bit grayscale.
 
-[requirement] (extends http://www.geopackage.org/spec/#_requirement-36[GPKG-36], http://www.geopackage.org/spec/#_requirement-37[GPKG-37]) For tile pyramids with a `gpkg_2D_gridded_coverage_ancillary` `datatype` of 'float', the `tile_data` BLOB in the tile pyramid user data table SHALL be of MIME type `image/tiff`.
+[requirement] (extends http://www.geopackage.org/spec/#_requirement-36[GPKG-36], http://www.geopackage.org/spec/#_requirement-37[GPKG-37]) For tile pyramids with a `gpkg_2D_gridded_coverage_ancillary` `datatype` of 'float', the `tile_data` BLOB in the tile pyramid user data table SHALL be of MIME type `image/tiff` as described in <<tiff_encoding>>.
+
+[requirement] (extends http://www.geopackage.org/spec/#_requirement-40[GPKG-40]) For each row in a tile pyramid user data table that references tiled gridded elevation data, the value of the `ancillary_id` column SHALL reference a value in the `gpkg_2D_gridded_tile_ancillary` `id` column.
 
 == TIFF Encoding
+[[tiff_encoding]]
 [requirement] (constrains TIFF<<2>> Section 2) A TIFF file storing tiled gridded elevation data SHALL have one sample per pixel.
 
 [requirement] (constrains TIFF<<2>> Section 2) A TIFF file storing tiled gridded elevation data SHALL have the 32-bit floating (FLOAT – 11) data type.

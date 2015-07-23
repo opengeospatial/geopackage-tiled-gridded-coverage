@@ -1,0 +1,92 @@
+[[tiled_gridded_elevation_data_tiff]]
+== Tiled Gridded Elevation Data, TIFF Encoding Extension (Normative)
+
+=== Extension Title
+
+Tiled Gridded Elevation Data, TIFF Encoding
+
+=== Introduction
+
+The GeoPackage Standards Working Group (SWG) has identified a need to store 32-bit tiled gridded elevation data in a GeoPackage.
+This extension builds off of the <<tiled_gridded_elevation_data>> extension and adds support for TIFF files to handle 32-bit (floating point) data.
+The TIFF files are constrained as follows:
+
+*	One sample per pixel
+*	LZW compression may be used
+*	No subfiles or internal tiles
+
+=== Extension Author
+
+GeoPackage SWG, author_name `gpkg`.
+
+=== Extension Name or Template
+
+`gpkg_elevation_tiles_tiff`
+
+=== Extension Type
+
+Extension of Existing Requirement in Clauses http://www.geopackage.org/spec/#tile_enc_png[2.2.4], http://www.geopackage.org/spec/#tile_enc_jpeg[2.2.5], and <<tiled_gridded_elevation_data>>.
+New Requirement Dependent on <<3>>.
+
+=== Applicability
+
+`tile_data` columns in http://www.geopackage.org/spec/#tiles_user_tables[tile pyramid user data tables]
+
+=== Scope
+
+read-write
+
+=== Requirements
+
+==== MIME Type
+[requirement] (extends http://www.geopackage.org/spec/#_requirement-35[GPKG-35],  http://www.geopackage.org/spec/#_requirement-36[GPKG-36])
+A GeoPackage that contains a http://www.geopackage.org/spec/#tiles_user_tables[tile pyramid user data table] MAY store BLOBs in the `tile_data` column in MIME type `image/tiff`.
+The content of the data table SHALL NOT be raster tiles as per the core specification and SHALL be described by an extension such as <<tiled_gridded_elevation_data>>.
+
+
+==== Table Values
+[[coverage_ancillary_tiff]]
+
+===== Coverage Ancillary
+[[gpkg_2D_gridded_coverage_ancillary_table_tiff]]
+[requirement] (extends <<coverage_ancillary>> Req-1) For tile pyramids containing 32-bit gridded elevation data, the `gpkg_2D_gridded_coverage_ancillary` `datatype` SHALL be 'float'.
+
+===== Tile Pyramid User Data Tables
+[requirement] (extends http://www.geopackage.org/spec/#_requirement-36[GPKG-36], http://www.geopackage.org/spec/#_requirement-37[GPKG-37]) For tile pyramids containing 32-bit gridded elevation data, the `tile_data` BLOB in the tile pyramid user data table SHALL be of MIME type `image/tiff` as described in <<tiff_encoding>>.
+
+===== `gpkg_extensions`
+[requirement] GeoPackages complying with this extension SHALL have a row in the `gpkg_extensions` table for each  as described in <<gpkg_extensions_records>>:
+
+:naming_authority: footnote:[Pending OGC naming authority decision.]
+[[gpkg_extensions_records]]
+.Extensions Table Record
+[cols=",,,",options="header",]
+|=======================================================================
+|`table_name`|`column_name`|`extension_name`|`definition`|`scope`
+|'name of actual http://www.geopackage.org/spec/#tiles_user_tables[tile pyramid user data table] containing floating point data'|`tile_data`|`gpkg_elevation_tiles_tiff`|TBD {naming_authority}|'read-write'
+|=======================================================================
+
+==== TIFF Encoding
+[[tiff_encoding]]
+[requirement] (constrains TIFF<<3>> Section 2) A TIFF file storing tiled gridded elevation data SHALL have one sample per pixel.
+
+[requirement] (constrains TIFF<<3>> Section 2) A TIFF file storing tiled gridded elevation data SHALL have the 32-bit floating (FLOAT – 11) data type.
+
+[requirement] A TIFF file storing tiled gridded elevation data MAY use the LZW compression option as per TIFF<<3>> Section 13. Client applications SHALL support this option.
+
+[requirement] (constrains TIFF<<3>> Section 2) A TIFF file storing tiled gridded elevation data SHALL NOT contain multiple images per TIFF file.
+
+[requirement] (constrains TIFF<<3>> Section 15) A TIFF file storing tiled gridded elevation data SHALL NOT contain internal tiles as per TIFF Section 15.
+
+
+=== References
+
+==== Normative References (Normative)
+
+The following normative documents contain provisions which, through reference in this text, constitute provisions of this document.
+For dated references, subsequent amendments to, or revisions of, any of these publications do not apply.
+However, parties to agreements based on this part of this document are encouraged to investigate the possibility of applying the most recent editions of the normative documents indicated below.
+For undated references, the latest edition of the normative document referred to applies.
+
+[bibliography]
+- [[[3]]] http://partners.adobe.com/public/developer/en/tiff/TIFF6.pdf[TIFF]

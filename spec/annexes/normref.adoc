@@ -9,5 +9,5 @@ For undated references, the latest edition of the normative document referred to
 [bibliography]
 - [[[1]]] http://www.geopackage.org/spec[OGC 12-128r10 OGC® GeoPackage Encoding Standard (On-line)]
 - [[[1a]]] https://portal.opengeospatial.org/files/?artifact_id=56357[OGC 12-128r10 OGC® GeoPackage Encoding Standard (PDF)]
-- [[[2]]] http://partners.adobe.com/public/developer/en/tiff/TIFF6.pdf[TIFF]
-- [[[3]]] http://unitsofmeasure.org/ucum.html[The Unified Code for Units of Measure (UCUM)]
+- [[[2]]] http://unitsofmeasure.org/ucum.html[The Unified Code for Units of Measure (UCUM)]
+- [[[3]]] http://partners.adobe.com/public/developer/en/tiff/TIFF6.pdf[TIFF]

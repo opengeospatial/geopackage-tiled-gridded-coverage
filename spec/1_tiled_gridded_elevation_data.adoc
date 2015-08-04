@@ -103,7 +103,8 @@ Clients SHALL ignore additional columns that are unrecognized.
 [cols=",,,",options="header",]
 |=======================================================================
 |`table_name`|`column_name`|`extension_name`|`definition`|`scope`
-|null|null|`gpkg_elevation_tiles`|TBD {naming_authority}|'read-write'
+|`gpkg_2D_gridded_coverage_ancillary`|null|`gpkg_elevation_tiles`|TBD {naming_authority}|'read-write'
+|`gpkg_2D_gridded_tile_ancillary`|null|`gpkg_elevation_tiles`|TBD {naming_authority}|'read-write'
 |=======================================================================
 
 ===== `gpkg_2D_gridded_coverage_ancillary`

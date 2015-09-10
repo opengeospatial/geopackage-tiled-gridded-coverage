@@ -26,7 +26,7 @@ GeoPackage SWG, author_name `gpkg`.
 === Extension Type
 
 Extension of Existing Requirement in Clauses http://www.geopackage.org/spec/#tile_enc_png[2.2.4], http://www.geopackage.org/spec/#tile_enc_jpeg[2.2.5], and <<tiled_gridded_elevation_data>>.
-New Requirement Dependent on <<3>>.
+New Requirement Dependent on <<TIFF6>>.
 
 === Applicability
 
@@ -68,15 +68,15 @@ The content of the data table SHALL NOT be raster tiles as per the core specific
 
 ==== TIFF Encoding
 [[tiff_encoding]]
-[requirement] (constrains TIFF<<3>> Section 2) A TIFF file storing tiled gridded elevation data SHALL have one sample per pixel.
+[requirement] (constrains TIFF<<TIFF6>> Section 2) A TIFF file storing tiled gridded elevation data SHALL have one sample per pixel.
 
-[requirement] (constrains TIFF<<3>> Section 2) A TIFF file storing tiled gridded elevation data SHALL have the 32-bit floating (FLOAT – 11) data type.
+[requirement] (constrains TIFF<<TIFF6>> Section 2) A TIFF file storing tiled gridded elevation data SHALL have the 32-bit floating (FLOAT – 11) data type.
 
-[requirement] A TIFF file storing tiled gridded elevation data MAY use the LZW compression option as per TIFF<<3>> Section 13. Client applications SHALL support this option.
+[requirement] A TIFF file storing tiled gridded elevation data MAY use the LZW compression option as per TIFF<<TIFF6>> Section 13. Client applications SHALL support this option.
 
-[requirement] (constrains TIFF<<3>> Section 2) A TIFF file storing tiled gridded elevation data SHALL NOT contain multiple images per TIFF file.
+[requirement] (constrains TIFF<<TIFF6>> Section 2) A TIFF file storing tiled gridded elevation data SHALL NOT contain multiple images per TIFF file.
 
-[requirement] (constrains TIFF<<3>> Section 15) A TIFF file storing tiled gridded elevation data SHALL NOT contain internal tiles as per TIFF Section 15.
+[requirement] (constrains TIFF<<TIFF6>> Section 15) A TIFF file storing tiled gridded elevation data SHALL NOT contain internal tiles as per TIFF Section 15.
 
 
 === References
@@ -89,4 +89,4 @@ However, parties to agreements based on this part of this document are encourage
 For undated references, the latest edition of the normative document referred to applies.
 
 [bibliography]
-- [[[3]]] http://partners.adobe.com/public/developer/en/tiff/TIFF6.pdf[TIFF]
+- [[[TIFF6]]] http://partners.adobe.com/public/developer/en/tiff/TIFF6.pdf[TIFF]

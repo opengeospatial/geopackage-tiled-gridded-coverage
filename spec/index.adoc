@@ -23,7 +23,7 @@ Category: OGC® Encoding Standard +
 Editor:   Paul Daisey
 
 [title]
-= OGC® GeoPackage Encoding Standard =
+= OGC® GeoPackage Elevation Extension =
 
 Copyright © 2015 Open Geospatial Consortium. +
 To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ +
@@ -63,11 +63,11 @@ _Recipients of this document are requested to submit, with their comments, notif
 
 == Abstract ==
 
-This OGC® Encoding Standard defines GeoPackages for exchange and GeoPackage SQLite Extensions for direct use of vector geospatial features and / or tile matrix sets of earth images and raster maps at various scales. Direct use means the ability to access and update data in a "native" storage format without intermediate format translations in an environment (e.g. through an API) that guarantees data model and data set integrity and identical access and update results in response to identical requests from different client applications.  GeoPackages are interoperable across all enterprise and personal computing environments, and are particularly useful on mobile devices like cell phones and tablets in communications environments with limited connectivity and bandwidth.
+This OGC® Encoding Standard defines two GeoPackage Extensions for tiled, gridded elevation data.
 
 == Keywords ==
 
-ogcdoc, geopackage, sqllite, raster, tiles, vector, feature, data, storage, exchange, mobile, smartphone, tablet, elevation, tiff
+ogcdoc, geopackage, sqlite, raster, tiles, vector, feature, data, storage, exchange, mobile, smartphone, tablet, elevation, tiff
 
 
 toc::[]

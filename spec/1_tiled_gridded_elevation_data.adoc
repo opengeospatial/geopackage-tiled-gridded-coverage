@@ -122,7 +122,7 @@ The following requirements refer to the `gpkg_2D_gridded_tile_ancillary` table a
 [requirement] Values of the `tpudt_id` column SHALL reference values in `id` column of the table referenced in `tpudt_name`.
 
 ===== Tile Pyramid User Data Tables
-[requirement] The `tile_data` BLOB in the http://www.geopackage.org/spec/#tiles_user_tables[tile pyramid user data table] containing tiled, gridded elevation data SHALL be of MIME type `image/png` and the data SHALL be 16-bit grayscale.
+[requirement] The `tile_data` BLOB in the http://www.geopackage.org/spec/#tiles_user_tables[tile pyramid user data table] containing tiled, gridded elevation data SHALL be of MIME type `image/png` and the data SHALL be 16-bit unsigned integer (single channel - "greyscale").
 
 === Table Definition SQL
 

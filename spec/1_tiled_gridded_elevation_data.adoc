@@ -95,7 +95,7 @@ Clients SHALL ignore additional columns that are unrecognized.
 [requirement] (extends http://www.geopackage.org/spec/#_requirement-34[GPKG-34]) The http://www.geopackage.org/spec/#_contents[`gpkg_contents`] table SHALL contain a row with a `data_type` column value of `2D-gridded-coverage` for each tile pyramid containing tiled gridded elevation data. The `srs_id` column value for that row SHOULD reference an SRS that has a vertical datum{vertical_datum}.
 
 ===== `gpkg_extensions`
-[requirement] GeoPackages complying with this extension SHALL have a row in the `gpkg_extensions` table as described in <<gpkg_extensions_records>>:
+[requirement] GeoPackages complying with this extension SHALL have rows in the `gpkg_extensions` table as described in <<gpkg_extensions_records>>:
 
 :naming_authority: footnote:[Pending OGC naming authority decision.]
 [[gpkg_extensions_records]]

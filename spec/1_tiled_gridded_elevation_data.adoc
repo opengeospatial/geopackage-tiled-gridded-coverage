@@ -69,6 +69,7 @@ Clients SHALL ignore additional columns that are unrecognized.
 |`data_null`|REAL{real_value}|The value that indicates NULL|yes||
 |`data_missing`|REAL{real_value}|The value that indicates data is missing|yes||
 |=======================================================================
+[requirement] Integer elevation values MAY be scaled and offset in order to make more efficient use of 16-bit integer space available in PNG files. Actual elevation values SHALL be calculated by multiplying the stored value by the `scale` and then adding the `offset`.
 
 ===== Tile Ancillary
 [requirement] A GeoPackage that contains tiled gridded elevation data SHALL contain a `gpkg_2D_gridded_tile_ancillary` table or view as per <<gpkg_2D_gridded_tile_ancillary_table>>.
@@ -88,6 +89,8 @@ Clients SHALL ignore additional columns that are unrecognized.
 |`mean`|REAL|The arithmetic mean of values in this tile|yes|
 |`std_dev`|REAL|The standard deviation of values in this tile|yes|
 |=======================================================================
+
+[requirement] The `min`, `max`, and `mean` values SHALL be natural, i.e., not scaled or offset. Similarly, the `std_dev` SHALL be calculated based on the natural values.
 
 ==== Table Values
 ===== `gpkg_contents`

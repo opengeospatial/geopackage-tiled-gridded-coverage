@@ -134,7 +134,7 @@ The following requirements refer to the `gpkg_2D_gridded_tile_ancillary` table a
 
  CREATE TABLE `gpkg_2D_gridded_coverage_ancillary` (
  	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
- 	`tile_matrix_set`	TEXT NOT NULL,
+ 	`tile_matrix_set_name`	TEXT NOT NULL,
  	`datatype`	TEXT NOT NULL DEFAULT 'integer',
  	`uom`	TEXT NOT NULL,
  	`scale`	REAL DEFAULT 1.0,

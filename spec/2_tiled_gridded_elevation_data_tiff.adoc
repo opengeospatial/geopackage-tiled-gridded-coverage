@@ -48,8 +48,8 @@ The content of the data table SHALL NOT be raster tiles as per the core specific
 [[coverage_ancillary_tiff]]
 
 ===== Coverage Ancillary
-[[gpkg_2D_gridded_coverage_ancillary_table_tiff]]
-[requirement] (extends <<coverage_ancillary>> Req-1) For tile pyramids containing 32-bit gridded elevation data, the `gpkg_2D_gridded_coverage_ancillary` `datatype` SHALL be 'float'.
+[[gpkg_2d_gridded_coverage_ancillary_table_tiff]]
+[requirement] (extends <<coverage_ancillary>> Req-1) For tile pyramids containing 32-bit gridded elevation data, the `gpkg_2d_gridded_coverage_ancillary` `datatype` SHALL be 'float'.
 
 ===== Tile Pyramid User Data Tables
 [requirement] (extends http://www.geopackage.org/spec/#_requirement-36[GPKG-36], http://www.geopackage.org/spec/#_requirement-37[GPKG-37]) For tile pyramids containing 32-bit gridded elevation data, the `tile_data` BLOB in the tile pyramid user data table SHALL be of MIME type `image/tiff` as described in <<tiff_encoding>>.

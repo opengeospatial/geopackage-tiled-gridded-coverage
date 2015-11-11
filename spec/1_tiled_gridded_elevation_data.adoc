@@ -130,32 +130,47 @@ The following requirements refer to the `gpkg_2D_gridded_tile_ancillary` table a
 
 === Table Definition SQL
 
-.Coverage Ancillary Table
+[[gpkg_coverage_ancillary_sql]]
+.Coverage Ancillary Table Definition SQL
+[cols=","]
+|=============
+|
+|=============
+[source,sql]
+----
+CREATE TABLE 'gpkg_2D_gridded_coverage_ancillary' (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  tile_matrix_set_name TEXT NOT NULL,
+  datatype TEXT NOT NULL DEFAULT 'integer',
+  uom TEXT NOT NULL,
+  scale REAL DEFAULT 1.0,
+  offset REAL DEFAULT 0.0,
+  precision REAL DEFAULT 1.0,
+  data_null REAL,
+  data_missing REAL,
+  CONSTRAINT fk_g2dgtct_name FOREIGN KEY('tile_matrix_set_name') REFERENCES gpkg_tile_matrix_set ( table_name )
+  CHECK (datatype in ('integer','float')));
+----
 
- CREATE TABLE `gpkg_2D_gridded_coverage_ancillary` (
- 	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
- 	`tile_matrix_set`	TEXT NOT NULL,
- 	`datatype`	TEXT NOT NULL DEFAULT 'integer',
- 	`uom`	TEXT NOT NULL,
- 	`scale`	REAL DEFAULT 1.0,
- 	`offset`	REAL DEFAULT 0.0,
- 	`precision`	REAL DEFAULT 1.0,
- 	FOREIGN KEY(`tile_matrix_set`) REFERENCES gpkg_tile_matrix_set ( table_name )
- 	CHECK (`datatype` in ('integer','float'))
- );
-
-.Tile Ancillary Table
-
- CREATE TABLE `gpkg_2D_gridded_tile_ancillary` (
- 	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
- 	`tpudt_name`	TEXT NOT NULL,
- 	`tpudt_id`	INTEGER NOT NULL,
- 	`min`	REAL DEFAULT NULL,
- 	`max`	REAL DEFAULT NULL,
- 	`mean`	REAL DEFAULT NULL,
- 	`std_dev`	REAL DEFAULT NULL,
- 	FOREIGN KEY(`tpudt_name`) REFERENCES gpkg_contents ( table_name )
- );
+[[gpkg_tile_ancillary_sql]]
+.Tile Ancillary Table Definition SQL
+[cols=","]
+|=============
+|
+|=============
+[source,sql]
+----
+CREATE TABLE gpkg_2D_gridded_tile_ancillary (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  tpudt_name TEXT NOT NULL,
+  tpudt_id INTEGER NOT NULL,
+  min REAL DEFAULT NULL,
+  max REAL DEFAULT NULL,
+  mean REAL DEFAULT NULL,
+  std_dev REAL DEFAULT NULL,
+  CONSTRAINT fk_g2dgtat_name FOREIGN KEY (tpudt_name) REFERENCES gpkg_contents(table_name),
+  UNIQUE (tpudt_name, tpudt_id));
+----
 
 === References
 

@@ -7,7 +7,7 @@ Tiled Gridded Elevation Data
 
 === Introduction
 
-The GeoPackage Standards Working Group (SWG) has identified a need for the ability to store tiled gridded elevation data in a GeoPackage. This capability will be used to support use cases such as the following:
+This OGC Candidate Encoding Standard defines a GeoPackage extension to store tiled gridded elevation data in a GeoPackage. This capability will be used to support use cases such as the following:
 
 *	Visualization
 **	2D (hillshade, color relief, slope)
@@ -34,11 +34,11 @@ GeoPackage SWG, author_name `gpkg`.
 
 === Extension Type
 
-New requirement dependent on http://www.geopackage.org/spec/#tiles[Clause 2.2].
+New requirement dependent on the GeoPackage Core Standard, http://www.geopackage.org/spec/#tiles[Clause 2.2].
 
 === Applicability
 
-This extension applies to http://www.geopackage.org/spec/#tiles_user_tables[tile pyramid user data tables] that are used to hold tiled, gridded elevation data.
+This extension applies to tile pyramid user data tables as defined in the GeoPackage standard, http://www.geopackage.org/spec/#tiles_user_tables[clause 2.1.6]. These tables are used to store tiled, gridded elevation data.
 
 === Scope
 

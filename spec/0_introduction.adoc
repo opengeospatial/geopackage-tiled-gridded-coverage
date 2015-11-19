@@ -4,8 +4,8 @@
 A GeoPackage <<geopackage>> is a platform-independent SQLite <<sqlite>> database file that contains GeoPackage data and metadata tables.
 GeoPackage is designed to be extensible, including support for additional data types.
 
-This document defines extensions that allow GeoPackage to support elevation data. Elevation data is provided as tiles of TIFF files,
-using 16 bit signed integer and 32 bit floating point data formats. To support this, an ancillary data table is used.
+This document defines extensions that allow GeoPackage to support elevation data. Elevation data is provided as tiles of 16 bit unsigned integer PNG files.
+An additional extension allows the use of TIFF files containing 32 bit floating point data. To support this, an ancillary data table is used.
 
 [bibliography]
 

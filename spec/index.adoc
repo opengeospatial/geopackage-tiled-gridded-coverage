@@ -30,7 +30,7 @@ To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ +
 *Warning*
 
 This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard. +
-Document type:         	TBD +
+Document type:         	OGC Candidate Encoding Standard +
 Document subtype:   	if applicable +
 Document stage:        	Draft +
 Document language: 	    English +
@@ -62,7 +62,7 @@ _Recipients of this document are requested to submit, with their comments, notif
 
 == Abstract ==
 
-This OGC® Encoding Standard defines two GeoPackage Extensions for tiled, gridded elevation data.
+This OGC® Candidate Encoding Standard defines two GeoPackage Extensions for tiled, gridded elevation data.
 
 == Keywords ==
 

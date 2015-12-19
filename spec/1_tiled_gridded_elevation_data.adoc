@@ -101,7 +101,7 @@ Clients SHALL ignore additional columns that are unrecognized.
 [cols=",,,,",options="header",]
 |=======================================================================
 |`srs_name`|`srs_id`|`organization`|`organization_coordsys_id`|`definition`|`description`
-|any|4979|`EPSG` or `epsg`|4979|any|any
+|any|`4979`|`EPSG` or `epsg`|`4979`|any|any
 |=======================================================================
 
 [requirement] The `geopackage_spatial_ref_sys` table in a GeoPackage SHALL contain records to define all spatial reference systems used by tiled gridded elevation data in a GeoPackage. The spatial reference system SHALL be used to define the vertical datum, reference geoid, and units of measure for the tiled gridded elevation data.
@@ -119,8 +119,8 @@ Clients SHALL ignore additional columns that are unrecognized.
 [cols=",,,",options="header",]
 |=======================================================================
 |`table_name`|`column_name`|`extension_name`|`definition`|`scope`
-|`gpkg_2d_gridded_coverage_ancillary`|null|`gpkg_elevation_tiles`|TBD {naming_authority}|'read-write'
-|`gpkg_2d_gridded_tile_ancillary`|null|`gpkg_elevation_tiles`|TBD {naming_authority}|'read-write'
+|`gpkg_2d_gridded_coverage_ancillary`|null|`gpkg_elevation_tiles`|TBD {naming_authority}|`read-write`
+|`gpkg_2d_gridded_tile_ancillary`|null|`gpkg_elevation_tiles`|TBD {naming_authority}|`read-write`
 |=======================================================================
 
 ===== `gpkg_2d_gridded_coverage_ancillary`

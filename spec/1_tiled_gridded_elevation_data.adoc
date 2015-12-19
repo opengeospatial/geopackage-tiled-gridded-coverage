@@ -62,7 +62,6 @@ Clients SHALL ignore additional columns that are unrecognized.
 |`id`|INTEGER	|Autoincrement primary key|no||PK
 |`tile_matrix_set_name`|TEXT|Foreign key to `table_name` in http://www.geopackage.org/spec/#tile_matrix_set_data_table_definition[`gpkg_tile_matrix_set`]|no||FK
 |`datatype`|TEXT	|'integer'|no||
-|`uom`|TEXT|unit of measure, as per UCUM<<2>>|no||
 |`scale`|REAL|Scale as a multiple relative to the unit of measure|yes|1|
 |`offset`|REAL|The offset to the 0 value|yes|0|
 |`precision`|REAL{real_value}|The smallest value that has meaning for this dataset|yes|1|
@@ -94,6 +93,19 @@ Clients SHALL ignore additional columns that are unrecognized.
 [requirement] The `min`, `max`, and `mean` values SHALL be natural, i.e., not scaled or offset. Similarly, the `std_dev` SHALL be calculated based on the natural values.
 
 ==== Table Values
+===== `gpkg_spatial_ref_sys`
+[requirement] GeoPackages complying with this extension SHALL have a row in the `gpkg_spatial_ref_sys` table as described in <<gpkg_spatial_ref_sys_record>>:
+
+[[gpkg_spatial_ref_sys_record]]
+.Spatial Ref Sys Table Record
+[cols=",,,,",options="header",]
+|=======================================================================
+|`srs_name`|`srs_id`|`organization`|`organization_coordsys_id`|`definition`|`description`
+|any|4979|`EPSG` or `epsg`|4979|any|any
+|=======================================================================
+
+[requirement] The `geopackage_spatial_ref_sys` table in a GeoPackage SHALL contain records to define all spatial reference systems used by tiled gridded elevation data in a GeoPackage. The spatial reference system SHALL be used to define the vertical datum, reference geoid, and units of measure for the tiled gridded elevation data.
+
 ===== `gpkg_contents`
 :vertical_datum: footnote:[Ideally the vertical datum for each pyramid of elevation will be specified. However, it is impractical to mandate this for a number of reasons, including the difficulty in testing whether a specific SRS has a valid vertical datum.]
 [requirement] (extends http://www.geopackage.org/spec/#_requirement-34[GPKG-34]) The http://www.geopackage.org/spec/#_contents[`gpkg_contents`] table SHALL contain a row with a `data_type` column value of `2d-gridded-coverage` for each tile pyramid containing tiled gridded elevation data. The `srs_id` column value for that row SHOULD reference an SRS that has a vertical datum{vertical_datum}.
@@ -142,7 +154,6 @@ CREATE TABLE 'gpkg_2d_gridded_coverage_ancillary' (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   tile_matrix_set_name TEXT NOT NULL,
   datatype TEXT NOT NULL DEFAULT 'integer',
-  uom TEXT NOT NULL,
   scale REAL DEFAULT 1.0,
   offset REAL DEFAULT 0.0,
   precision REAL DEFAULT 1.0,
@@ -184,4 +195,3 @@ For undated references, the latest edition of the normative document referred to
 [bibliography]
 - [[[1]]] http://www.geopackage.org/spec[OGC 12-128r10 OGC® GeoPackage Encoding Standard (On-line)]
 - [[[1a]]] https://portal.opengeospatial.org/files/?artifact_id=56357[OGC 12-128r10 OGC® GeoPackage Encoding Standard (PDF)]
-- [[[2]]] http://unitsofmeasure.org/ucum.html[The Unified Code for Units of Measure (UCUM)]

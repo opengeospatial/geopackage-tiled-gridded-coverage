@@ -96,7 +96,7 @@ Clients SHALL ignore additional columns that are unrecognized.
 ==== Using the scale and offset values
 [requirement] Integer elevation values MAY be scaled and offset in order to make more efficient use of 16-bit integer space available in PNG files. The scope the scale and offset apply to can be both the entire coverage and the individual tile.
 
-Actual elevation valus SHALL be calculated by
+Actual elevation values SHALL be calculated by
 
 * first multiplying the stored value by the `gpkg_2d_gridded_tile_ancillary_table.scale` value and then adding the `gpkg_2d_gridded_tile_ancillary_table.offset`,
 * followed by multiplying that value by the `gpkg_2d_gridded_coverage_ancillary.scale` value and then adding the `gpkg_2d_gridded_coverage_ancillary.offset`.

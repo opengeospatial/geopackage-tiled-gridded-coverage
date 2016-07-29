@@ -66,7 +66,6 @@ Clients SHALL ignore additional columns that are unrecognized.
 |`offset`|REAL|The offset to the 0 value|yes|0|
 |`precision`|REAL{real_value}|The smallest value that has meaning for this dataset|yes|1|
 |`data_null`|REAL{real_value}|The value that indicates NULL|yes||
-|`data_missing`|REAL{real_value}|The value that indicates data is missing|yes||
 |=======================================================================
 
 ===== Tile Ancillary

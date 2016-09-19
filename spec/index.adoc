@@ -78,7 +78,7 @@ include::0_introduction.adoc[]
 
 :numbered:
 
-include::1_tiled_gridded_elevation_data.adoc[]
+include::1_tiled_gridded_elevation_data_png.adoc[]
 
 include::2_tiled_gridded_elevation_data_tiff.adoc[]
 

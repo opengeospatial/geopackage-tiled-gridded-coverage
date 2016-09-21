@@ -11,25 +11,25 @@ The GeoPackage Standards Working Group (SWG) has identified a need for the abili
 
 This capability will be used to support use cases such as the following:
 
-*	Visualization
-**	2D (hillshade, color relief, slope)
-**	3D (supporting changing view angles and level of detail)
-*	Analysis
-**	Viewshed and line-of-sight
+* Visualization
+**  2D (hillshade, color relief, slope)
+**  3D (supporting changing view angles and level of detail)
+* Analysis
+**  Viewshed and line-of-sight
 ** Cross-country mobility (off-road routing)
 ** Site suitability and planning (slope analysis such as helicopter landing zones)
 ** 3D geometry representations of features (ground-based, airspace)
-**	Terrain association (associating images to mapped locations)
-**	Augmented reality training
+**  Terrain association (associating images to mapped locations)
+**  Augmented reality training
 
 :elevation_precision: footnote:[We acknowledge that this approach will not support certain applications that require a high degree of precision and/or accuracy (e.g., targeting).]
 
 This extension builds off of the <<tiled_gridded_elevation_data>> extension and adds support for TIFF files to handle 32-bit (floating point) data.
 The TIFF files are constrained as follows:
 
-*	One sample per pixel
-*	LZW compression may be used
-*	No subfiles or internal tiles
+* One sample per pixel
+* LZW compression may be used
+* No subfiles or internal tiles
 
 === Extension Author
 
@@ -72,7 +72,7 @@ Clients SHALL ignore additional columns that are unrecognized.
 :real_value: footnote:[This is a REAL to support extensions that use non-integer data.]
 [[gpkg_2d_gridded_coverage_ancillary_table]]
 .Coverage Ancillary Table Definition
-[cols=",,,,,",options="header",]
+[cols=",,,,,,",options="header",]
 |=======================================================================
 |Column Name |Column Type |Column Description |Null |Default |Key|Constraint
 |`id`|INTEGER |Autoincrement primary key|no||PK|

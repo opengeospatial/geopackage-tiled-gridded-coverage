@@ -1,0 +1,27 @@
+== References
+
+The following normative documents contain provisions that, through reference in this text, constitute provisions of this document. For dated references, subsequent amendments to, or revisions of, any of these publications do not apply. For undated references, the latest edition of the normative document referred to applies.
+
+ISO 12639, TIFF™ Revision 6.0 Final, June 3, 1992 Adobe® Systems Incorporated
+
+[[New_WKT_Reference]]ISO 19162:2015 _Geographic information -- Well-known text representation of coordinate reference systems_. Also OGC 12-063r5. http://docs.opengeospatial.org/is/12-063r5/12-063r5.html
+
+[[Old_WKT_Reference]]OGC 01-009 _Implementation Specification: Coordinate Transformation Services Revision 1.0_ http://portal.opengeospatial.org/files/?artifact_id=999[_http://portal.opengeospatial.org/files/?artifact_id=999_]
+
+OGC 08-015r2, _Abstract Specification Topic 2 – Spatial Referencing by Coordinates_, (ISO 19111), April 27, 2010.
+
+OGC 07-011, _Abstract Specification Topic 6: Schema for coverage geometry and functions_, (ISO 19123), January 30, 2006
+
+OGC 15-115r3 _CDB Core Standard: Model and Physical Data Store Structure_, December 2016. https://portal.opengeospatial.org/files/?artifact_id=72712
+
+OGC 09-146r6 _Coverage Implementation Schema_ September 15, 2017. http://docs.opengeospatial.org/is/09-146r6/09-146r6.html
+
+OGC 12-128r12, _GeoPackage Encoding Standard 1.1_, August 4, 2015 http://www.geopackage.org/spec110/
+
+OGC 06-121r9 Web Services Common Standard, version 2.0.0, April 7, 2010.
+
+[[_Ref425705852]]OGC 08-094r1, OGC^®^ SWE Common Data Model Encoding Standard, version 2.0
+
+UCUM : http://unitsofmeasure.org/ucum.html[The Unified Code for Units of Measure]. 2014.
+
+Adobe _TIFF ™ Revision 6.0 Final_, June 3, 1992 ftp://download.osgeo.org/libtiff/doc/TIFF6.pdf[_ftp://download.osgeo.org/libtiff/doc/TIFF6.pdf_], by Adobe® Systems Incorporated

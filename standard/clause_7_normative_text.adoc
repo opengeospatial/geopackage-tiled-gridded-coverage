@@ -8,13 +8,13 @@ Clause 7 defines the requirements for encoding and storing regular, grid coverag
 Clauses 7.1.1 and 7.1.2 define the requirements and elements of Tiled Grid Extension ancillary (additional) tables required for storing a regular grid of values such as elevation in a GeoPackage.
 
 
-include::/requirements/requirements_class_Table_Definitions.adoc[]
+include::requirements/requirements_class_Table_Definitions.adoc[]
 
 [[coverage-ancillary]]
 ==== Coverage Ancillary
 
 
-include::/requirements/REQ001.adoc[]
+include::requirements/REQ001.adoc[]
 
 <<CoverageAncillaryTableDefinition>> provides definitions for columns in the Coverage Ancillary Table.
 
@@ -110,7 +110,7 @@ This metadata element/column is required if the values contained in a grid cover
 
 
 
-include::/requirements/REQ002.adoc[]
+include::requirements/REQ002.adoc[]
 
 [#TileAncillaryTableDefinition,reftext='{table-caption} {counter:table-num}']
 .Tile Ancillary Table Definition
@@ -145,7 +145,7 @@ include::requirements/requirements_class_Table_Values.adoc[]
 
 
 
-include::/requirements/REQ003.adoc[]
+include::requirements/REQ003.adoc[]
 
 
 Due to limitations in expressing 3D coordinate reference systems in the original OGC (circa 2001) link:#Old_WKT_Reference[Well-known Text], it is recommended that GeoPackages complying with the grid-regular extension also comply with link:#New_WKT_Reference[ISO 19162] WKT for Coordinate Reference Systems as described in the GeoPackage CRS extension http://www.geopackage.org/spec/#extension_crs_wkt. Please refer to clause F.10 WKT for Coordinate Reference Systems in the core http://www.geopackage.org/spec110/[GeoPackage standard version 1.1] and later.
@@ -162,7 +162,7 @@ Due to limitations in expressing 3D coordinate reference systems in the original
 
 
 
-include::/requirements/REQ004.adoc[]
+include::requirements/REQ004.adoc[]
 
 
 [[gpkg_contents]]
@@ -172,7 +172,7 @@ include::/requirements/REQ004.adoc[]
 
 
 
-include::/requirements/REQ005.adoc[]
+include::requirements/REQ005.adoc[]
 
 [[gpkg_extensions]]
 ==== gpkg_extensions
@@ -210,17 +210,17 @@ The following requirements refer to the `gpkg_2d_gridded_coverage_ancillary` tab
 
 
 
-include::/requirements/REQ007.adoc[]
+include::requirements/REQ007.adoc[]
 
 
 
 
-include::/requirements/REQ008.adoc[]
+include::requirements/REQ008.adoc[]
 
 
 
 
-include::/requirements/REQ009.adoc[]
+include::requirements/REQ009.adoc[]
 
 
 === gpkg_2d_gridded_tile_ancillary
@@ -243,19 +243,19 @@ The following requirements refer to the `gpkg_2d_gridded_tile_ancillary` table a
 
 
 
-include::/requirements/REQ010.adoc[]
+include::requirements/REQ010.adoc[]
 
 
 
 
 
-include::/requirements/REQ011.adoc[]
+include::requirements/REQ011.adoc[]
 
 
 
 
 
-include::/requirements/REQ012.adoc[]
+include::requirements/REQ012.adoc[]
 
 
 === Tile Pyramid User Data Tables
@@ -270,12 +270,12 @@ include::requirements/requirements_class_Tile_Pyramid_User_Data_Tables.adoc[]
 
 
 
-include::/requirements/REQ013.adoc[]
+include::requirements/REQ013.adoc[]
 
 
 
 
-include::/requirements/REQ014.adoc[]
+include::requirements/REQ014.adoc[]
 
 
 == TIFF Encoding
@@ -302,13 +302,13 @@ include::requirements/requirements_class_Tiff_Encoding.adoc[]
 
 
 
-include::/requirements/REQ015.adoc[]
+include::requirements/REQ015.adoc[]
 
 
 
 
 
-include::/requirements/REQ016.adoc[]
+include::requirements/REQ016.adoc[]
 
 
 By setting TIFF TAG 277 (SamplesPerPixel) to be 1, the GeoPackage producer indicates that there is a single sample per grid cell.
@@ -316,7 +316,7 @@ By setting TIFF TAG 277 (SamplesPerPixel) to be 1, the GeoPackage producer indic
 
 
 
-include::/requirements/REQ017.adoc[]
+include::requirements/REQ017.adoc[]
 
 
 
@@ -325,7 +325,7 @@ By setting TAG 339 (SampleFormat) to be 3, the producer indicates that the Sampl
 
 
 
-include::/requirements/REQ018.adoc[]
+include::requirements/REQ018.adoc[]
 
 
 NOTE to developers: Client applications that support the TIFF encoding are expected to support this LZW compression. This is due to the fact that GeoPackages containing gridded coverages delivered to a client may or may not use LZW compression.
@@ -333,15 +333,15 @@ NOTE to developers: Client applications that support the TIFF encoding are expec
 
 
 
-include::/requirements/REQ019.adoc[]
+include::requirements/REQ019.adoc[]
 
 
 
 
 
-include::/requirements/REQ020.adoc[]
+include::requirements/REQ020.adoc[]
 
 
 
 
-include::/requirements/REQ021.adoc[]
+include::requirements/REQ021.adoc[]

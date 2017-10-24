@@ -56,7 +56,7 @@ include::../abstract_tests/TEST008.adoc[]
 include::../abstract_tests/TEST009.adoc[]
 
 
-1.  *Tile Ancillary*
+=== Tile Ancillary
 
 
 
@@ -67,7 +67,7 @@ include::../abstract_tests/TEST010.adoc[]
 include::../abstract_tests/TEST011.adoc[]
 
 
-1.  *Tile Pyramid User Data Table*
+=== Tile Pyramid User Data Table
 
 
 include::../abstract_tests/TEST012.adoc[]

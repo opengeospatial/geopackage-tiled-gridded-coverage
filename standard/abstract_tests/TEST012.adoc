@@ -7,8 +7,8 @@
 2.  For each table_name
 a.  `SELECT t.datatype AS datatype, u.id AS id, u.tile_data AS tile_data FROM gpkg_2d_gridded_coverage_ancillary t, \{table_name} u WHERE t.tile_matrix_set_name = _table_name_;`
 b.  For each row
-a.  If datatype is float, fail if tile_data is not a valid TIFF image as per requirements 115-121
-b.  If datatype is integer, fail if tile_data is not a valid PNG image
+c.  If datatype is float, fail if tile_data is not a valid TIFF image as per requirements 115-121
+d.  If datatype is integer, fail if tile_data is not a valid PNG image
 3.  Pass if no fails
 
 |*Reference:* |Annex F.11 Req 13, 14, 115-121

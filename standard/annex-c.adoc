@@ -22,7 +22,7 @@ precision REAL DEFAULT 1.0,
 
 data_null REAL,
 
-grid_cell_encoding TEXT (DEFAULT grid-value-is-center),
+grid_cell_encoding TEXT DEFAULT 'grid-value-is-center',
 
 uom TEXT,
 

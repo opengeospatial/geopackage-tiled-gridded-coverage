@@ -16,8 +16,8 @@ NOTE and WARNING: Any implementations of the candidate standard prior to August 
 
 The following information is provided in compliance with the GeoPackage Extension template as defined in Annex E: GeoPackage Extension Template of the GeoPackage Standard. These additional introductory clauses are not elements in the standard OGC document template.
 
-* Extension Author: GeoPackage SWG, author_name `gpkg`.
-* Extension Name or Template: `gpkg_elevation_tiles`.
+* Extension Author: GeoPackage SWG, author_name of `gpkg` will be assigned if this extension is adopted by OGC.
+* Extension Name or Template: `2d_gridded_coverage`, alias of `gpkg_2d_gridded_coverage` will be assigned if this extension is adopted by OGC.
 * Extension Type: This extension has a dependency on http://www.geopackage.org/spec/#tiles[_Clause 2.2_]footnote:[The GeoPackage (Clause 2.2) Tiles option specifies a mechanism for storing raster data in tile pyramids in a GeoPackage data store.] of the core GeoPackage standard.
 * Applicability: This GeoPackage Gridded Coverages extension can be used to store any gridded coverage in a GeoPackage data store. This extension specifies requirements and optional clauses for additional GeoPackage tables as well as requirements for extensions to http://www.geopackage.org/spec/#tiles_user_tables[_tile pyramid user data tables_] (Clause 2.2.8 of the GeoPackage core) that can be used to hold tiled, gridded coverage data.
 * Scope: read-write

@@ -29,8 +29,8 @@ include::requirements/REQ001.adoc[]
 |`datatype` |TEXT |_integer_ or _float_ |no |_integer_ | |
 |`scale` |REAL |Scale as a multiple relative to the unit of measure |no |1 | |
 |`offset` |REAL |The offset to the 0 value |no |0 | |
-|`precision` |REAL footnote:[http://www.geopackage.org/spec/#_footnote_41[_41_] |The smallest value that has meaning for this dataset |yes |1 | |
-|`data_null` |REAL footnote:[http://www.geopackage.org/spec/#_footnote_42[_42_] |The value that indicates NULL |yes | | |
+|`precision` |REAL footnote:[This is a REAL to support extensions that use non-integer data.] |The smallest value that has meaning for this dataset |yes |1 | |
+|`data_null` |REAL footnote:[This is a REAL to support extensions that use non-integer data.] |The value that indicates NULL |yes | | |
 |`grid_cell_encoding` |TEXT |Specifies how a value is assigned to a grid cell (pixel) |yes |grid-value-is-center | |
 |`uom` |TEXT |Units of Measure for values in the grid coverage |yes | | |
 |`field_name` |TEXT |Type of Gridded Coverage Data (default is Height). |yes |Height | |
@@ -122,8 +122,8 @@ include::requirements/REQ002.adoc[]
 |`tpudt_id` |INTEGER |Foreign key to id in http://www.geopackage.org/spec/#tiles_user_tables[_tile pyramid user data table_] |no | |UNIQUEfootnote:[These two values are designed to be jointly unique so that they refer to a single row in a single table.]
 |`scale` |REAL |Scale as a multiple relative to the unit of measure |no |1 |
 |`offset` |REAL |The offset to the 0 value |no |0 |
-|`min` |REAL footnote:[http://www.geopackage.org/spec/#_footnote_45[_45_] |Minimum value of this tile |yes | |
-|`max` |REAL footnote:[http://www.geopackage.org/spec/#_footnote_46[_46_] |Maximum value of this tile |yes | |
+|`min` |REAL footnote:[This is a REAL to support extensions that use non-integer data.] |Minimum value of this tile |yes | |
+|`max` |REAL footnote:[This is a REAL to support extensions that use non-integer data.] |Maximum value of this tile |yes | |
 |`mean` |REAL |The arithmetic mean of values in this tile |yes | |
 |`std_dev` |REAL |The standard deviation of values in this tile |yes | |
 |==========================================================================================================================================================================================================================================================
@@ -191,10 +191,15 @@ GeoPackages complying with this extension SHALL have rows in the `gpkg_extension
 [cols=",,,,",options="header",]
 |=============================================================================================================================================================================================================================================================================================================================================================================================
 |*table_name* |*column_name* |*extension_name* |*definition* |*scope*
-|`gpkg_2d_gridded_coverage_ancillary` |null |`2d_gridded_coverage` |http://www.geopackage.org/spec/#extension_tiled_gridded_elevation_data[_http://www.geopackage.org/spec/#extension_tiled_gridded_elevation_data_] |`read-write`
-|`gpkg_2d_gridded_tile_ancillary` |null |`2d_gridded_coverage` |http://www.geopackage.org/spec/#extension_tiled_gridded_elevation_data[_http://www.geopackage.org/spec/#extension_tiled_gridded_elevation_data_] |`read-write`
-|name of actual http://www.geopackage.org/spec/#tiles_user_tables[_tile pyramid user data table_] containing grid-regular data |`tile_data` |`2d_gridded_coverage` |http://www.geopackage.org/spec/#extension_tiled_gridded_elevation_data[_http://www.geopackage.org/spec/#extension_tiled_gridded_elevation_data_]footnote:[Need to change this and the two above to this document.] |`read-write`
+|`gpkg_2d_gridded_coverage_ancillary` |null |`2d_gridded_coverage` |TBD|`read-write`
+|`gpkg_2d_gridded_tile_ancillary` |null |`2d_gridded_coverage` |TBD|`read-write`
+|name of actual http://www.geopackage.org/spec/#tiles_user_tables[_tile pyramid user data table_] containing grid-regular data |`tile_data` |`2d_gridded_coverage` |TBDfootnote:[When this extension is adopted these definitions will point to a web page containing this document] |`read-write`
 |=============================================================================================================================================================================================================================================================================================================================================================================================
+
+[NOTE]
+=====================
+If this extension is adopted by OGC, the alias `gpkg_2d_gridded_coverage` will be assigned.
+=====================
 
 === gpkg_2d_gridded_coverage_ancillary
 

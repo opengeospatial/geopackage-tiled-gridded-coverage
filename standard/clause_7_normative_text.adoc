@@ -196,6 +196,11 @@ GeoPackages complying with this extension SHALL have rows in the `gpkg_extension
 |name of actual http://www.geopackage.org/spec/#tiles_user_tables[_tile pyramid user data table_] containing grid-regular data |`tile_data` |`2d_gridded_coverage` |TBDfootnote:[When this extension is adopted these definitions will point to a web page containing this document] |`read-write`
 |=============================================================================================================================================================================================================================================================================================================================================================================================
 
+[NOTE]
+=====================
+If this extension is adopted by OGC, the alias `gpkg_2d_gridded_coverage` will be assigned.
+=====================
+
 === gpkg_2d_gridded_coverage_ancillary
 
 The following requirements class defined mandatory and optional elements for the coverage ancillary table definition.

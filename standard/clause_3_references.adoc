@@ -14,7 +14,7 @@ OGC 07-011, _Abstract Specification Topic 6: Schema for coverage geometry and fu
 
 OGC 15-115r3 _CDB Core Standard: Model and Physical Data Store Structure_, December 2016. https://portal.opengeospatial.org/files/?artifact_id=72712
 
-OGC 09-146r6 _Coverage Implementation Schema_ September 15, 2017. http://docs.opengeospatial.org/is/09-146r6/09-146r6.html
+OGC 09-146r6 _Coverage Implementation Schema 1.1_, September 15, 2017. http://docs.opengeospatial.org/is/09-146r6/09-146r6.html
 
 OGC 12-128r12, _GeoPackage Encoding Standard 1.1_, August 4, 2015 http://www.geopackage.org/spec110/
 

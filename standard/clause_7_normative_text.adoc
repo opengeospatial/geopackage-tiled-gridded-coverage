@@ -191,9 +191,9 @@ GeoPackages complying with this extension SHALL have rows in the `gpkg_extension
 [cols=",,,,",options="header",]
 |=============================================================================================================================================================================================================================================================================================================================================================================================
 |*table_name* |*column_name* |*extension_name* |*definition* |*scope*
-|`gpkg_2d_gridded_coverage_ancillary` |null |`2d_gridded_coverage` |TBD|`read-write`
-|`gpkg_2d_gridded_tile_ancillary` |null |`2d_gridded_coverage` |TBD|`read-write`
-|name of actual http://www.geopackage.org/spec/#tiles_user_tables[_tile pyramid user data table_] containing grid-regular data |`tile_data` |`2d_gridded_coverage` |TBDfootnote:[When this extension is adopted these definitions will point to a web page containing this document] |`read-write`
+|`gpkg_2d_gridded_coverage_ancillary` |null |`gpkg_2d_gridded_coverage` |http://docs.opengeospatial.org/is/17-066r1/17-066r1.html|`read-write`
+|`gpkg_2d_gridded_tile_ancillary` |null |`gpkg_2d_gridded_coverage` |http://docs.opengeospatial.org/is/17-066r1/17-066r1.html|`read-write`
+|name of actual http://www.geopackage.org/spec/#tiles_user_tables[_tile pyramid user data table_] containing grid-regular data |`tile_data` |`gpkg_2d_gridded_coverage` |http://docs.opengeospatial.org/is/17-066r1/17-066r1.html|`read-write`
 |=============================================================================================================================================================================================================================================================================================================================================================================================
 
 [NOTE]

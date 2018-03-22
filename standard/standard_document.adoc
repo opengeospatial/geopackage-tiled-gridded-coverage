@@ -19,7 +19,7 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: 2017-07-25
 |Approval Date:   2018-03-06
-|Publication Date:   <2018-03-07
+|Publication Date:   2018-03-07
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/geopackage-gr/1.0
 |Internal reference number of this OGC(R) document:    17-066r1
 |Version: 1.0

@@ -44,9 +44,7 @@
 |*Warning*
 |===
 
-This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard.
-
-Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.
+This document is an OGC Member endorsed international Community standard.  This Community standard was developed outside of the OGC and the originating party may continue to update their work; however, this document is fixed in content. This document is available on a royalty free, non-discriminatory basis. Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.
 
 [width = "50%", grid = "none"]
 |===
@@ -95,7 +93,6 @@ include::clause_6_informative_text.adoc[]
 
 include::clause_7_normative_text.adoc[]
 
-include::clause_8_media_types.adoc[]
 
 <<<
 ////

@@ -3,7 +3,7 @@
 This extension defines the rules for encoding and storing 16-bit and 32-bit tiled regular grid coverages composed of regular gridded data, such as elevation and temperature, in a GeoPackage. This capability may be used to support use cases such as the following:
 
 * Visualization
-** 2d and 3d Draping and Texture mapping
+** 2D and 3D Draping and Texture mapping
 ** 2D (hill shade, color relief, slope, aspect)
 ** 3D (supporting changing view angles and level of detail)
 * Analysis

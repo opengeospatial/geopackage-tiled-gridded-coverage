@@ -57,10 +57,10 @@ Note: _integer_ and _float_ refer to the values stored in the tiles. If _integer
 
 There is a small set of possible ways in how a value is actually assigned to a given grid cell. For example, a value could be assigned to the center of a cell, a corner of a cell, and so forth. Additionally, a value can be assigned to the entire cell. The OGC standards baseline currently states the use of pixel-is-point: GMLJP2 follows the definition of grids in GML 3.2.1 [OGC 07-036] clause 19.2.2: “When a grid point is used to represent a sample space (e.g. image pixel), the grid point represents the center of the sample space (see ISO 19123:2005, 8.2.2)”. In this extension, we use “grid-value-is-area” rather than “pixel-is-area” for discrete coverages such as classified satellite imagery and specifies that the value for an entire grid cell is the same value.
 
-For the purposes of grid coverage GeoPackage extension, the following values are allowed:
+For the purposes of grid coverage GeoPackage extension, the following values are allowed.
 
 * grid-value-is-center: This is the default. Assume the value is center of grid cell.
-* grid-value-is-area – Assume the entire grid cell has the same value..
+* grid-value-is-area – Assume the entire grid cell has the same value.
 * grid-value-is-corner – A typical use case is for a mesh of elevation values as specified in the OGC CDB standard Clause 5.6.1.
 
 As other sampling methods are identified, the list of enumeration types can be expanded.
@@ -71,7 +71,7 @@ The default is the units of measure as defined in the vertical CRS metadata, suc
 
 * Cel - Celsius, degree – temperature
 * [degF] – degree Fahrenheit – temperature
-* atm - standard atmosphere – pressure
+* mbar - millibar – pressure
 * B[uV] - microvolt, bel – electric potential level
 
 There are other normative sources for UoM definitions, such as the World Meteorological codes registryfootnote:[https://codes.wmo.int/def/common/Unit] and the NASA QUDT semantic definitionsfootnote:[http://www.qudt.org/].
@@ -178,13 +178,7 @@ include::requirements/REQ005.adoc[]
 ==== gpkg_extensions
 
 
-[width="90%",cols="2,6"]
-|===
-|*Requirement 6* {set:cellbgcolor:#CACCCE}|Req/gpkg-extensions +
- +
-
-GeoPackages complying with this extension SHALL have rows in the `gpkg_extensions` table as described in <<ExtensionTableRecord>> Extensions Table Record (below). {set:cellbgcolor:#FFFFFF}
-|===
+include::requirements/REQ006.adoc[]
 
 [#ExtensionTableRecord,reftext='{table-caption} {counter:table-num}']
 .Extension Table Record
@@ -285,14 +279,14 @@ include::requirements/REQ014.adoc[]
 
 == TIFF Encoding
 
-Due to the wide range of possible TIFF encodings, the TIFF encoding for a `GeneralGridCoverage`, `class grid-regular` (such as forelevation data) tile has been constrained for the sake of interoperability and best practice. Further, these constraints are provided as a basis for enhanced interoperability with using GeoPackages in an OGC compliant CDB data store. CDB, used in the modelling and simulation industry, has a major requirement for using GeneralGridCoverage, class grid-regular such as terrain (a grid of elevations). CDB defines a strict set of requirements for encoding terrain as a tiled TIFF coverage in a CDB data store.
+Due to the wide range of possible TIFF encodings, the TIFF encoding for a `GeneralGridCoverage`, `class grid-regular` (such as for elevation data) tile has been constrained for the sake of interoperability and best practice. Further, these constraints are provided as a basis for enhanced interoperability with using GeoPackages in an OGC compliant CDB data store. CDB, used in the modeling and simulation industry, has a major requirement for using GeneralGridCoverage, class grid-regular such as terrain (a grid of elevations). CDB defines a strict set of requirements for encoding terrain as a tiled TIFF coverage in a CDB data store.
 
 Each TIFF encoded tile is a baseline TIFF as defined in the Part 1 of the TIFF standard. The only allowed encoding extensions are:
 
 * IEEE floating point (see Requirement 136 below)
 * LZW compression (see Requirement 137 below)
 
-Tiles are encoded as a single-band image using one 32-bit floating point component per pixel. This implies a number of constraints which are listed below:
+Tiles are encoded as a single-band image using one 32-bit floating point component per pixel. This implies a number of constraints which are listed below.
 
 * There is only one band per TIFF tile, i.e., for any pixel in the TIFF tile, there SHALL be only one component (see Requirement 135 below).
 * All pixels in the tile SHALL be set with a valid component value (see Requirement 143 below).

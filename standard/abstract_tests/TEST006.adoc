@@ -1,6 +1,6 @@
 [cols=",",options="header",]
 |=============================================================================================================================================
-|*Test Case ID* |`/extensions/elevation/table_val/gpkg_extensions`
+|*Test Case ID* |`/extensions/coverage/table_val/gpkg_extensions`
 |*Test Purpose:* |Verify that all required rows are present in gpkg_extensions
 |*Test Method:* a|
 1.  `SELECT table_name, column_name, extension_name, definition, scope from gpkg_extensions";`
